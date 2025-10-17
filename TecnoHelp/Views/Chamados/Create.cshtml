@@ -1,0 +1,38 @@
+﻿@model TecnoHelp.Models.Chamado
+
+@{
+    Layout = "~/Views/Shared/_LayoutCentered.cshtml";
+    ViewData["Title"] = "Abrir Novo Chamado";
+}
+
+<div class="centered-form">
+    <form asp-action="Create">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Titulo" class="form-control" placeholder="Título do Problema" />
+            <label asp-for="Titulo">Título do Problema</label>
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.CategoriaId">
+                <option value="">-- Selecione a Categoria --</option>
+            </select>
+            <label asp-for="CategoriaId">Categoria</label>
+            <span asp-validation-for="CategoriaId" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea asp-for="Descricao" class="form-control" placeholder="Descreva o problema" style="height: 120px"></textarea>
+            <label asp-for="Descricao">Descreva o problema em detalhes...</label>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Cadastrar Chamado" class="w-100 btn btn-lg btn-primary" />
+        <div class="text-center mt-3">
+            <a asp-action="Index">Voltar para a Lista</a>
+        </div>
+    </form>
+</div>

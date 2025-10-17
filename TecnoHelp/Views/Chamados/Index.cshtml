@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TecnoHelp.Models.Chamado>
+
+@{
+    ViewData["Title"] = "Meus Chamados";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-primary" style="width: auto; padding: 10px 25px;">Abrir Novo Chamado</a>
+    </div>
+
+    <div class="item-list">
+        @foreach (var item in Model)
+        {
+            <div class="item-card">
+                <h5>@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                <p><strong>Nome:</strong> @Html.DisplayFor(modelItem => item.Solicitante.Nome)</p>
+                <p><strong>Categoria:</strong> @Html.DisplayFor(modelItem => item.Categoria.Nome)</p>
+                @{
+                    var statusClass = "status-" + item.Status.Nome.ToLower().Replace(" ", "-");
+                }
+                <p><strong>Status:</strong> <span class="@statusClass">@Html.DisplayFor(modelItem => item.Status.Nome)</span></p>
+                <div class="item-card-actions">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

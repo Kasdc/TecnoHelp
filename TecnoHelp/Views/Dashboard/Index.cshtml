@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Dashboard de Chamados</h1>
+        <p class="text-muted">Resumo geral da situação do suporte técnico.</p>
+    </div>
+
+    <hr style="border-color: var(--border-color);" />
+
+    <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100" style="background-color: #007bff; color: white;">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-subtitle mb-2 text-white-50">Total de Chamados</h6>
+                    <p class="card-title">@ViewBag.TotalChamados</p>
+                    <p class="card-text mt-auto">Registrados no sistema.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100" style="background-color: #dc3545; color: white;">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-subtitle mb-2 text-white-50">Chamados Abertos</h6>
+                    <p class="card-title">@ViewBag.ChamadosAbertos</p>
+                    <p class="card-text mt-auto">Aguardando atendimento.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100" style="background-color: #ffc107; color: #121212;">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-subtitle mb-2 text-black-50">Em Andamento</h6>
+                    <p class="card-title">@ViewBag.ChamadosEmAndamento</p>
+                    <p class="card-text mt-auto">Sendo atendidos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100" style="background-color: #28a745; color: white;">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-subtitle mb-2 text-white-50">Chamados Resolvidos</h6>
+                    <p class="card-title">@ViewBag.ChamadosResolvidos</p>
+                    <p class="card-text mt-auto">Finalizados com sucesso.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model TecnoHelp.Models.Usuario
+
+@{
+    // Usa o layout especial para centralizar o conteúdo
+    Layout = "~/Views/Shared/_LayoutCentered.cshtml";
+    ViewData["Title"] = "Criar Novo Usuário";
+}
+
+<div class="centered-form">
+    <form asp-action="Create">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Nome" class="form-control" placeholder="Nome Completo" />
+            <label asp-for="Nome">Nome Completo</label>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="Senha" type="password" class="form-control" placeholder="Senha" />
+            <label asp-for="Senha"></label>
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <select asp-for="TipoUsuario" class="form-select" asp-items="ViewBag.TiposUsuario">
+                <option value="">-- Selecione um Perfil --</option>
+            </select>
+            <label asp-for="TipoUsuario">Perfil de Usuário</label>
+            <span asp-validation-for="TipoUsuario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check mb-4">
+            <input class="form-check-input" asp-for="Ativo" />
+            <label class="form-check-label" asp-for="Ativo">
+                @Html.DisplayNameFor(model => model.Ativo)
+            </label>
+        </div>
+
+        <input type="submit" value="Criar Usuário" class="w-100 btn btn-lg btn-primary" />
+    </form>
+</div>

@@ -1,0 +1,159 @@
+/* --- 1. IMPORTAÇÃO DA FONTE E VARIÁVEIS DE TEMA --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #f38321;
+    --background-dark: #121212;
+    --background-secondary: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-muted: #8e8e93;
+    --border-color: #333333;
+    --border-radius: 8px;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --- 2. LAYOUT GERAL E CORREÇÃO DO RODAPÉ --- */
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--background-dark) !important;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+}
+
+main {
+    flex-grow: 1; /* Faz o conteúdo principal "empurrar" o rodapé para baixo */
+}
+
+.container {
+    max-width: 960px;
+}
+
+/* Container especial para formulários centralizados */
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Ocupa o espaço disponível para centralizar verticalmente */
+}
+
+.centered-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: var(--background-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+
+/* --- 3. NAVBAR E FOOTER --- */
+.navbar, .footer {
+    background-color: var(--background-secondary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.nav-link, .navbar-brand {
+    color: var(--text-color) !important;
+}
+
+.footer {
+    flex-shrink: 0; /* Impede que o rodapé encolha */
+}
+
+/* --- 4. ESTILO DE LISTA (CARDS) RESPONSIVO --- */
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item-card {
+    background-color: var(--background-secondary);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+    .item-card h5 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    .item-card p {
+        margin-bottom: 0.5rem;
+        color: var(--text-muted);
+    }
+
+        .item-card p strong {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+.item-card-actions {
+    margin-top: 1rem;
+}
+
+    .item-card-actions a {
+        margin-right: 1.5rem;
+    }
+
+/* Badges de Status */
+.badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+.status-aberto {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-em-andamento {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-resolvido, .status-encerrado {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+/* --- 5. OUTROS COMPONENTES --- */
+h1 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-control, .form-select {
+    background-color: #2a2a2a;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+    .form-control:focus, .form-select:focus {
+        background-color: #2a2a2a;
+        color: var(--text-color);
+        border-color: var(--primary-color);
+        box-shadow: none;
+    }
