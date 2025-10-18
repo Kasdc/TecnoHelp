@@ -7,6 +7,11 @@ namespace TecnoHelp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        public IActionResult About()
+        {
+            ViewData["Title"] = "Sobre";
+            return View();
+        }
 
         public HomeController(ILogger<HomeController> logger)
         {

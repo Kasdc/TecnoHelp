@@ -152,8 +152,14 @@ h1 {
 }
 
     .form-control:focus, .form-select:focus {
-        background-color: #2a2a2a;
+            background-color: #2a2a2a;
         color: var(--text-color);
         border-color: var(--primary-color);
         box-shadow: none;
     }
+
+/* --- Estilo para o Logo na Navbar --- */
+.navbar-logo {
+    height: 35px; /* Ajuste esta altura conforme necessário */
+    width: auto; /* Mantém a proporção */
+}
