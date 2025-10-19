@@ -1,9 +1,12 @@
 ﻿@model TecnoHelp.Models.Usuario
 
 @{
+    // Remove o título da aba do navegador para que ele use o título da página de origem
     ViewData["Title"] = "Excluir Usuário";
-}
 
+    // Opcional: Para uma Partial View, é comum não usar o Layout
+    // Layout = null;
+}
 <h1>@ViewData["Title"]</h1>
 
 <h3>Você tem certeza que deseja excluir este usuário?</h3>

@@ -26,6 +26,7 @@ body {
     min-height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
 }
 
+
 main {
     flex-grow: 1; /* Faz o conteúdo principal "empurrar" o rodapé para baixo */
 }
@@ -53,17 +54,58 @@ main {
 
 
 /* --- 3. NAVBAR E FOOTER --- */
+.navbar {
+    --accent-color: #f38321; 
+}
+
 .navbar, .footer {
     background-color: var(--background-secondary) !important;
     border-color: var(--border-color) !important;
 }
 
+/* 1. Estilos dos Links */
 .nav-link, .navbar-brand {
     color: var(--text-color) !important;
+    text-decoration: none; 
+    position: relative; 
+    /* Transição suave para a cor do texto (como no vídeo) */
+    transition: color 0.3s ease-in-out;
+    display: inline-block; 
 }
 
+    /* 2. Criação do Sublinhado Animado (::after) */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0; /* Posição: na parte de baixo do link */
+        left: 0;
+        height: 3px; /* Espessura da linha */
+        background-color: var(--accent-color, #007bff); 
+        width: 0;
+        /* Transição que cria a animação de deslize horizontal */
+        transition: width 0.3s ease-in-out;
+    }
+
+    /* 3. Ação de Interação (Hover) */
+
+    /* Altera a cor do texto ao passar o mouse */
+    .nav-link:hover {
+        color: var(--accent-color, #007bff) !important;
+    }
+
+        /* Faz a linha aparecer ao passar o mouse */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
 .footer {
-    flex-shrink: 0; /* Impede que o rodapé encolha */
+    flex-shrink: 0;
+    /* CÓDIGO DE CENTRALIZAÇÃO CSS */
+    text-align: center;
+    /* Opcional: Garante que o texto ocupe a largura total */
+    width: 100%;
+    padding-top: 5px; /* Adiciona algum espaçamento vertical, se necessário */
+    padding-bottom: 5px;
 }
 
 /* --- 4. ESTILO DE LISTA (CARDS) RESPONSIVO --- */
@@ -74,36 +116,23 @@ main {
 }
 
 .item-card {
+    /* Cor de fundo do card, equivalente ao #2A2A2A */
     background-color: var(--background-secondary);
     border-radius: var(--border-radius);
     padding: 1.5rem;
     border: 1px solid var(--border-color);
+    /* transição suave */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-    .item-card h5 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
-        font-weight: 700;
+    /* ANIMAÇÃO */
+    .item-card:hover {
+        /* Cor de fundo no hover, equivalente ao #343A40*/
+        background-color: #343A40;
+        /* Efeito de zoom/pulo no hover */
+        transform: scale(1.02);
     }
 
-    .item-card p {
-        margin-bottom: 0.5rem;
-        color: var(--text-muted);
-    }
-
-        .item-card p strong {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-.item-card-actions {
-    margin-top: 1rem;
-}
-
-    .item-card-actions a {
-        margin-right: 1.5rem;
-    }
 
 /* Badges de Status */
 .badge {
@@ -145,6 +174,14 @@ h1 {
     border-color: var(--primary-color);
 }
 
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: white;
+        border-color: #f38321;
+        color: #f38321;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
 .form-control, .form-select {
     background-color: #2a2a2a;
     color: var(--text-color);
@@ -163,3 +200,18 @@ h1 {
     height: 35px; /* Ajuste esta altura conforme necessário */
     width: auto; /* Mantém a proporção */
 }
+
+
+.btn-delete-custom {
+    background-color: #dc3545; /* Vermelho */
+    border-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-delete-custom:hover,
+.btn-delete-custom:focus {
+    background-color: white;
+    border-color: #dc3545; /* Borda vermelha no hover */
+    color: #dc3545; /* Texto vermelho no hover */
+}   
