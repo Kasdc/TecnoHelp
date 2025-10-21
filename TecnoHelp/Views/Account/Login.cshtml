@@ -1,21 +1,31 @@
 ﻿@model TecnoHelp.Models.LoginViewModel
+
 @{
     Layout = "~/Views/Shared/_LayoutCentered.cshtml";
     ViewData["Title"] = "Login";
 }
 
-<div class="centered-form">
+<div class="centered-form fade-in-form">
+    @* <-- A classe 'fade-in-form' já está aqui! *@
     <form id="account" asp-action="Login" method="post">
-        <h1 class="mb-4">Bem-vindo!</h1>
+
+        <h1 class="mb-4">Bem-vindo ao <span>Tecno</span>Help!</h1>
         <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
         <div class="form-floating mb-3">
             <input asp-for="Email" class="form-control" autocomplete="username" />
             <label asp-for="Email" class="form-label"></label>
         </div>
+
         <div class="form-floating mb-3">
             <input asp-for="Senha" class="form-control" autocomplete="current-password" />
             <label asp-for="Senha" class="form-label"></label>
         </div>
+
+        <a class="password" href="#">Esqueceu sua senha?</a>
+        <br /> <br />
+
         <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Entrar</button>
+
     </form>
 </div>
