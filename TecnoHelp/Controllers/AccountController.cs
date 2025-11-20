@@ -57,7 +57,15 @@ namespace TecnoHelp.Controllers
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("Index", "Home"); // Redireciona para a página inicial
+                    // Redirecionamento inteligente baseado no perfil
+                    if (usuario.TipoUsuario == "admin")
+                    {
+                        return RedirectToAction("Index", "Dashboard");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Chamados");
+                    }
                 }
 
                 // Se o login falhar, adiciona uma mensagem de erro e retorna para a tela de login

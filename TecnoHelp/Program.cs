@@ -10,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Configuração do DbContext para usar o banco de dados em memória
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
-       options.UseInMemoryDatabase("TecnoHelpDb") // Usa o banco de dados em memória
-                                               //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")) // Deixe esta linha comentada para portabilidade
+
+      // options.UseInMemoryDatabase("TecnoHelpDb") // Usa o banco de dados em memória
+
+      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")) // Deixe esta linha comentada para portabilidade
 );
 
 // Configuração da Autenticação por Cookies
@@ -20,7 +22,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.LoginPath = "/Account/Login"; // Página para redirecionar se o usuário não estiver logado
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Tempo de validade do login
-        options.AccessDeniedPath = "/Home/AccessDenied"; // Página para acesso negado
+        options.AccessDeniedPath = "/Account/Login"; // Página para acesso negado
     });
 
 
@@ -104,6 +106,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
