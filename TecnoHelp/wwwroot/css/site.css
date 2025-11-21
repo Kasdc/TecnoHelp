@@ -17,6 +17,24 @@ html {
     font-size: 14px;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Começa 20px abaixo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+    }
+}
+
+/* Classe que aplica a animação ao elemento */
+.fade-in-content{
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
 body {
     background-color: var(--background-dark) !important;
     color: var(--text-color);
@@ -35,7 +53,7 @@ main {
     max-width: 960px;
 }
 
-/* Container especial para formulários centralizados */
+/* --- LOGIN ESTILO ---*/
 .centered-container {
     display: flex;
     align-items: center;
@@ -53,9 +71,16 @@ main {
 }
 
 
+.password {
+    color: #34495e;
+    font-size: 14px;
+    margin: 20px 0;
+    text-align: center;
+}
+
 /* --- 3. NAVBAR E FOOTER --- */
 .navbar {
-    --accent-color: #f38321; 
+    --accent-color: #f38321;    
 }
 
 .navbar, .footer {
@@ -169,6 +194,10 @@ h1 {
     margin-bottom: 2.5rem;
 }
 
+span {
+    color: #f38321;
+}   
+
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -214,4 +243,47 @@ h1 {
     background-color: white;
     border-color: #dc3545; /* Borda vermelha no hover */
     color: #dc3545; /* Texto vermelho no hover */
-}   
+}
+
+    input:focus {
+        outline: none;
+        background-color: #343A40;
+        transform: scale(1.05);
+        transition: 0.4s;
+    }
+
+
+/* --- LINK REDES SOCIAIS ABOUT --- */
+/* Container principal - ícones */
+.list-redes-sociais {
+    list-style: none; /* Remove os pontos da lista */
+    padding: 0;
+    margin-top: 55px;
+    display: flex; /* Alinha os itens em linha */
+    justify-content: center; /* Centraliza o grupo de ícones na tela */
+    gap: 20px; /* Espaço entre cada ícone */
+}
+
+/* Estiliza cada item do ícone */
+.link-redes-sociais {
+    color: var(--accent-color, #f38321);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+    /* Efeito Hover (Interação) */
+.link-redes-sociais:hover {
+        color: var(--text-color, white); /* Muda a cor no hover (pode ser branco) */
+    }
+
+/* Garante que o item da lista não tenha espaçamento extra */
+.item-redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    border: 2px solid #f38321;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
