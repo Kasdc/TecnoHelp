@@ -287,3 +287,57 @@ span {
     height: 45px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+/* --- ESTILIZAÇÃO DO MENU MOBILE --- */
+
+/* 1. Personaliza a cor do ícone "Hambúrguer" para Laranja */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(243, 131, 33, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* 2. Remove a borda quadrada padrão do botão e adiciona foco suave */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: none; /* Remove o brilho azul padrão */
+        outline: 2px solid var(--primary-color); /* Adiciona contorno laranja sutil */
+    }
+
+/* 3. Estiliza a área do menu quando ela abre (expandida) */
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background-color: var(--background-secondary); /* Fundo mais claro que a página */
+        border-radius: var(--border-radius); /* Bordas arredondadas */
+        padding: 1rem;
+        margin-top: 1rem;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
+    }
+
+    /* Espaçamento entre os links no mobile */
+    .navbar-nav .nav-item {
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid #3a3a3a; /* Linha separadora sutil */
+        padding-bottom: 0.5rem;
+    }
+
+        .navbar-nav .nav-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+    /* Alinha o texto ao centro no mobile para ficar mais elegante */
+    .navbar-nav {
+        text-align: center;
+    }
+
+        /* Botão de Logout no mobile */
+        .navbar-nav form button {
+            width: 100%;
+            text-align: center;
+            color: #ff6b6b !important; /* Vermelho claro para logout */
+        }
+}
